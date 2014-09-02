@@ -3,7 +3,8 @@ Yii 2 Cookie Button
 
 ##### Version 0.1.0
 
-Yii 2 Cookie Button based on Bootstrap Button or ButtonGroup. Widget to store 0/1 in a cookie for Yii2 Framework.  
+Yii 2 Cookie Button based on Bootstrap Button or ButtonGroup.   
+Widget to store 0/1 in a cookie for Yii2 Framework.  
 Add and remove cookies via javascript, with help of [carhartl / jquery-cookie plugin](https://github.com/carhartl/jquery-cookie).
 
 Usage
@@ -83,11 +84,11 @@ Add repository url to the required section of your `composer.json` file.
 
 Either run
 
-    php composer.phar require dmstr/yii2-cookie-button "0.1.*"
+    php composer.phar require dmstr/yii2-cookie-button "*"
 
 or add
 
-    "dmstr/yii2-cookie-button": "0.1.*"
+    "dmstr/yii2-cookie-button": "*"
 
 
 to the required section of your `composer.json` file.
