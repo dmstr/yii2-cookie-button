@@ -3,7 +3,7 @@
  * @link http://diemeisterei.de
  * @copyright Copyright (c) 2014 diemeisterei GmbH
  * @license https://github.com/dmstr/yii2-cookie-button/LICENSE.md
- * @author Marc Mautz <m.mautz@herzogkommunikation.de>
+ * @author Marc Mautz <marc@diemeisterei.de>
  */
 
 namespace dmstr\cookiebutton;
@@ -64,7 +64,7 @@ use yii\helpers\ArrayHelper;
  * ```
  * @see http://getbootstrap.com/javascript/#buttons
  * @see http://getbootstrap.com/components/#btn-groups
- * @author Marc Mautz <m.mautz@herzogkommunikation.de>
+ * @author Marc Mautz <marc@diemeisterei.de>
  * @since 2.0
  */
 
