@@ -9,12 +9,12 @@
     "authors": [
         {
             "name": "Marc Mautz",
-            "email": "m.mautz@herzogkommunikation.de"
+            "email": "marc@diemeisterei.de"
         }
     ],
     "autoload": {
         "psr-4": {
-            "dmstr\\yii2-cookie-button\\": ""
+            "dmstr\\cookiebutton\\": ""
         }
     },
     "require": {
