@@ -42,9 +42,9 @@ Usage
 
     echo CookieButton::widget([
         'label' => ['On', 'Off'],           // String for default button, array for switch button
-        'toggleClass' => 'btn-primary'      // Only needed if button type is switch
+        'toggleClass' => 'btn-primary',     // Only needed if button type is switch
         'options' => [
-            'id' => 'cookieSwitchBtn'       // The button id
+            'id' => 'cookieSwitchBtn',      // The button id
             'class' => 'btn-xs',            // Default button class
         ],
         'cookie' => [
