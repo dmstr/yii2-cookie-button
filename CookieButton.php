@@ -25,8 +25,8 @@ use yii\helpers\ArrayHelper;
  * echo CookieButton::widget([
  *     'label' => 'Button',                 // String for default button, array for switch buttons
  *     'options' => [
- *          'id' => 'cookieDefaultBtn'      // The button id
- *          'class' => 'btn-xs btn-primary',// Default button class
+ *          'id' => 'cookieDefaultBtn',     // The button id
+ *          'class' => 'btn-xs btn-primary' // Default button class
  *     ],
  *     'cookie' => [
  *          'name' => 'name',
@@ -48,7 +48,7 @@ use yii\helpers\ArrayHelper;
  *     'toggleClass' => 'btn-primary',      // Only needed if button type is switch
  *     'options' => [
  *          'id' => 'cookieSwitchBtn',      // The button id
- *          'class' => 'btn-xs',            // Default button class
+ *          'class' => 'btn-xs'             // Default button class
  *     ],
  *     'cookie' => [
  *          'name' => 'name',

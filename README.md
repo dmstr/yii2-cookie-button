@@ -1,7 +1,7 @@
 Yii 2 Cookie Button
 ==================
 
-##### Version 0.1.0
+##### Version 0.1.3
 
 Yii 2 Cookie Button based on Bootstrap Button or ButtonGroup.   
 Widget to store 0/1 in a cookie for Yii2 Framework.  
@@ -15,8 +15,8 @@ Usage
     echo CookieButton::widget([
         'label' => 'Button',                    // String for default button, array for switch button
         'options' => [
-            'id' => 'cookieDefaultBtn'          // The button id
-            'class' => 'btn-xs btn-primary',    // Default button class
+            'id' => 'cookieDefaultBtn',         // The button id
+            'class' => 'btn-xs btn-primary'     // Default button class
         ],
         'cookie' => [
             'name' => 'name',
@@ -45,7 +45,7 @@ Usage
         'toggleClass' => 'btn-primary',     // Only needed if button type is switch
         'options' => [
             'id' => 'cookieSwitchBtn',      // The button id
-            'class' => 'btn-xs',            // Default button class
+            'class' => 'btn-xs'             // Default button class
         ],
         'cookie' => [
             'name' => 'name',
