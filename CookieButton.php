@@ -16,12 +16,11 @@ use yii\bootstrap\ButtonGroup;
 use yii\helpers\ArrayHelper;
 
 /**
- * CookieButton renders a bootstrap button or buttongroup.
+ * CookieButton renders a "Twitter Bootstrap" button or buttongroup.
  *
- * For example,
+ * For example, a single default button ("Twitter Bootstrap" Button)
  *
- * Single default button (Bootstrap Button)
- * ```php
+ * ~~~
  * echo CookieButton::widget([
  *     'label' => 'Button',                 // String for default button, array for switch buttons
  *     'options' => [
@@ -39,10 +38,11 @@ use yii\helpers\ArrayHelper;
  *          ]
  *      ]
  * ]);
- * ```
+ * ~~~
  *
- * Switch button (Bootstrap ButtonGroup)
- * ```php
+ * For example, a switch button ("Twitter Bootstrap" ButtonGroup)
+ *
+ * ~~~
  * echo CookieButton::widget([
  *     'label' => ['On', 'Off'],            // String for default button, array for switch buttons
  *     'toggleClass' => 'btn-primary',      // Only needed if button type is switch
@@ -61,7 +61,8 @@ use yii\helpers\ArrayHelper;
  *          ]
  *      ]
  * ]);
- * ```
+ * ~~~
+ *
  * @see http://getbootstrap.com/javascript/#buttons
  * @see http://getbootstrap.com/components/#btn-groups
  * @author Marc Mautz <marc@diemeisterei.de>
@@ -71,7 +72,7 @@ use yii\helpers\ArrayHelper;
 class CookieButton extends \yii\bootstrap\Widget
 {
     /**
-     * @var string / array the button label/s
+     * @var string|array the button label/s
      */
     public $label = 'Button';
 
@@ -81,7 +82,7 @@ class CookieButton extends \yii\bootstrap\Widget
     public $encodeLabel = true;
 
     /**
-     * @var string the switch button active state css class.
+     * @var string the switch button active state CSS class.
      */
     public $toggleClass = '';
 
@@ -212,7 +213,7 @@ class CookieButton extends \yii\bootstrap\Widget
 
     /**
      * Remove or return cookie value
-     * ToDo: add cookie...
+     * @todo add cookie...
      * @param string $name the name of the cookie
      * @param string $value the cookie value, if false remove cookie, if null return value
      * @param number $expire the cookie expire date
