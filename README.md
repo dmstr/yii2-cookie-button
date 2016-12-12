@@ -1,7 +1,7 @@
 Yii 2 Cookie Button
 ==================
 
-##### Version 0.1.4
+##### Version 0.1.3
 
 Yii 2 Cookie Button based on "Twitter Bootstrap" Button or ButtonGroup.
 Widget to store 0/1 in a cookie for Yii2 Framework.  
