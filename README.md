@@ -3,7 +3,7 @@ Yii 2 Cookie Button
 
 ##### Version 0.1.3
 
-Yii 2 Cookie Button based on Bootstrap Button or ButtonGroup.   
+Yii 2 Cookie Button based on "Twitter Bootstrap" Button or ButtonGroup.
 Widget to store 0/1 in a cookie for Yii2 Framework.  
 Add and remove cookies via javascript, with help of [carhartl / jquery-cookie plugin](https://github.com/carhartl/jquery-cookie).
 

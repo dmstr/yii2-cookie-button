@@ -17,7 +17,7 @@ use yii\helpers\Json;
 use yii\web\View;
 
 /**
- * CookieButton renders a bootstrap button or buttongroup.
+ * CookieButton renders a "Twitter Bootstrap" button or buttongroup.
  *
  * For examples see the documentation
  *
@@ -55,7 +55,7 @@ class CookieButton extends \yii\bootstrap\Widget
     public $encodeLabel = true;
 
     /**
-     * @var string the switch button active state css class.
+     * @var string the switch button active state CSS class.
      */
     public $toggleClass = '';
 
@@ -189,7 +189,7 @@ class CookieButton extends \yii\bootstrap\Widget
 
     /**
      * Remove or return cookie value
-     * ToDo: add cookie...
+     * @todo add cookie...
      * @param string $name the name of the cookie
      * @param string $value the cookie value, if false remove cookie, if null return value
      * @param number $expire the cookie expire date
