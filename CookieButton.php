@@ -8,68 +8,42 @@
 
 namespace dmstr\cookiebutton;
 
-use yii\helpers\Json;
-use yii\web\View;
-use yii\helpers\Html;
+use yii\base\InvalidConfigException;
 use yii\bootstrap\Button;
 use yii\bootstrap\ButtonGroup;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
+use yii\helpers\Json;
+use yii\web\View;
 
 /**
  * CookieButton renders a bootstrap button or buttongroup.
  *
- * For example,
+ * For examples see the documentation
  *
- * Single default button (Bootstrap Button)
- * ```php
- * echo CookieButton::widget([
- *     'label' => 'Button',                 // String for default button, array for switch buttons
- *     'options' => [
- *          'id' => 'cookieDefaultBtn',     // The button id
- *          'class' => 'btn-xs btn-primary' // Default button class
- *     ],
- *     'cookie' => [
- *          'name' => 'name',
- *          'value' => 'value',
- *          'options' => [                  // 'options' are optional
- *              'expires' => 365,           // Define lifetime of the cookie. Value can be a Number which will be interpreted as days from time of creation or a Date object. If omitted, the cookie becomes a session cookie.
- *              'path' => '/',              // Define the path where the cookie is valid. By default the path of the cookie is the path of the page where the cookie was created (standard browser behavior).
- *              'domain' => 'example.com',  // Define the domain where the cookie is valid. Default: domain of page where the cookie was created.
- *              'secure' => true            // If true, the cookie transmission requires a secure protocol (https). Default: false.
- *          ]
- *      ]
- * ]);
- * ```
- *
- * Switch button (Bootstrap ButtonGroup)
- * ```php
- * echo CookieButton::widget([
- *     'label' => ['On', 'Off'],            // String for default button, array for switch buttons
- *     'toggleClass' => 'btn-primary',      // Only needed if button type is switch
- *     'options' => [
- *          'id' => 'cookieSwitchBtn',      // The button id
- *          'class' => 'btn-xs'             // Default button class
- *     ],
- *     'cookie' => [
- *          'name' => 'name',
- *          'value' => 'value',
- *          'options' => [                  // 'options' are optional
- *              'expires' => 365,           // Define lifetime of the cookie. Value can be a Number which will be interpreted as days from time of creation or a Date object. If omitted, the cookie becomes a session cookie.
- *              'path' => '/',              // Define the path where the cookie is valid. By default the path of the cookie is the path of the page where the cookie was created (standard browser behavior).
- *              'domain' => 'example.com',  // Define the domain where the cookie is valid. Default: domain of page where the cookie was created.
- *              'secure' => true            // If true, the cookie transmission requires a secure protocol (https). Default: false.
- *          ]
- *      ]
- * ]);
- * ```
  * @see http://getbootstrap.com/javascript/#buttons
  * @see http://getbootstrap.com/components/#btn-groups
  * @author Marc Mautz <marc@diemeisterei.de>
  * @since 2.0
  */
-
 class CookieButton extends \yii\bootstrap\Widget
 {
+    /**
+     * @var string name of the cookie
+     * @since 0.2
+     */
+    public $cookieName;
+
+    /**
+     * @var mixed cookie value
+     */
+    public $cookieValue;
+
+    /**
+     * @var array cookie options
+     */
+    public $cookieOptions = [];
+
     /**
      * @var string / array the button label/s
      */
@@ -89,16 +63,7 @@ class CookieButton extends \yii\bootstrap\Widget
      * @var array the configuration of the cookie.
      *
      */
-    public $cookie = [
-        'name' => 'name',
-        'value' => 'value',
-        'options' => [
-            'expires' => '',
-            'path' => '',
-            'domain' => '',
-            'secure' => ''
-        ]
-    ];
+    public $cookie = [];
 
     /**
      * @var string the button type setting (i.e. button or switch).
@@ -117,6 +82,17 @@ class CookieButton extends \yii\bootstrap\Widget
     {
         parent::init();
 
+        // check for BC
+        if (!empty($this->cookieName)) {
+            if (!preg_match("/^[a-zA-Z0-9-_]+$/", $this->cookieName)) {
+                throw new InvalidConfigException('Invalid cookieName');
+            }
+            $this->cookie = [
+                'name' => $this->cookieName,
+                'value' => [$this->cookieName, $this->cookieValue],
+                'options' => $this->cookieOptions,
+            ];
+        }
     }
 
     /**
@@ -147,7 +123,7 @@ class CookieButton extends \yii\bootstrap\Widget
             'btnName' => $this->options['id'],
             'cookieName' => $this->cookie['name'],
             'cookieValue' => addslashes($this->getHashedCookieValue($this->cookie['value'])),
-            'cookieOptions' => isset($this->cookie['options']) ? $this->cookie['options'] : null
+            'cookieOptions' => isset($this->cookie['options']) ? $this->cookie['options'] : null,
         ]);
 
         if($this->cookie($this->cookie['name'])) {
@@ -156,6 +132,7 @@ class CookieButton extends \yii\bootstrap\Widget
 
         echo Button::widget([
             'label' => $this->encodeLabel ? Html::encode($this->label) : $this->label,
+            'encodeLabel' => $this->encodeLabel,
             'options' => ArrayHelper::merge(['data-toggle' => 'button'], $this->options),
         ]);
     }

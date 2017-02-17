@@ -12,44 +12,34 @@ Usage
 
 ### Single button (default)
 
-    echo CookieButton::widget([
-        'label' => 'Button',                    // String for default button, array for switch button
-        'options' => [
-            'id' => 'cookieDefaultBtn',         // The button id
-            'class' => 'btn-xs btn-primary'     // Default button class
-        ],
-        'cookie' => [
-            'name' => 'name',
-            'value' => 'value',
-            'options' => [                      // 'options' are optional
-                'expires' => 365,               // Define lifetime of the cookie.
-                                                // Value can be a Number which will be interpreted as days
-                                                // from time of creation or a Date object.
-                                                // If omitted, the cookie becomes a session cookie.
-                'path' => '/',                  // Define the path where the cookie is valid.
-                                                // By default the path of the cookie is the path of the page
-                                                // where the cookie was created
-                                                // (standard browser behavior).
-                'domain' => 'example.com',      // Define the domain where the cookie is valid.
-                                                // Default: domain of page where the cookie was created.
-                'secure' => true                // If true, the cookie transmission requires a secure protocol (https).
-                                                // Default: false.
+        $button = CookieButton::widget([
+            'label' => FA::icon(FA::_EYE),
+            'encodeLabel' => false,
+            'toggleClass' => 'btn-primary',
+            'cookieName' => 'Key-or-Name',
+            'cookieValue' => 'on',
+            'cookieOptions' => [
+                'path' => '/',
+                'http' => true,
+                'expires' => strtotime('1 week')
+            ],
+            'options' => [
+                'class' => 'btn-primary',
             ]
-        ]
-    ]);
+        ]);
 
 ### Switch button
 
     echo CookieButton::widget([
         'label' => ['On', 'Off'],           // String for default button, array for switch button
         'toggleClass' => 'btn-primary',     // Only needed if button type is switch
+        'cookieName' => 'Key-or-Name',
+        'cookieValue' => 'on',
         'options' => [
             'id' => 'cookieSwitchBtn',      // The button id
             'class' => 'btn-xs'             // Default button class
         ],
-        'cookie' => [
-            'name' => 'name',
-            'value' => 'value',
+        'cookieOptions' => [
             'options' => [                  // 'options' are optional
                 'expires' => 365,           // Define lifetime of the cookie.
                                             // Value can be a Number which will be interpreted as days

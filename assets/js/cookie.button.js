@@ -25,6 +25,7 @@ var CookieButton = (function () {
                 $(this).find('.btn').toggleClass(options.toggleClass);
                 $(this).find('.btn').toggleClass('btn-default');
             }
+            $(document).trigger('cookieUpdate');
         });
     }
 
