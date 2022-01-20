@@ -66,6 +66,11 @@ class CookieButton extends \yii\bootstrap\Widget
     public $cookie = [];
 
     /**
+     * @var string the tag to use to render the button
+     */
+    public $buttonTagName = 'button';
+
+    /**
      * @var string the button type setting (i.e. button or switch).
      */
     private $toggleTyp = 'button';
@@ -134,6 +139,7 @@ class CookieButton extends \yii\bootstrap\Widget
             'label' => $this->encodeLabel ? Html::encode($this->label) : $this->label,
             'encodeLabel' => $this->encodeLabel,
             'options' => ArrayHelper::merge(['data-toggle' => 'button'], $this->options),
+            'tagName' => $this->buttonTagName
         ]);
     }
 
