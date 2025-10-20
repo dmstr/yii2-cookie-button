@@ -9,8 +9,8 @@
 namespace dmstr\cookiebutton;
 
 use yii\base\InvalidConfigException;
-use yii\bootstrap\Button;
-use yii\bootstrap\ButtonGroup;
+use yii\bootstrap5\Button;
+use yii\bootstrap5\ButtonGroup;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -26,7 +26,7 @@ use yii\web\View;
  * @author Marc Mautz <marc@diemeisterei.de>
  * @since 2.0
  */
-class CookieButton extends \yii\bootstrap\Widget
+class CookieButton extends \yii\bootstrap5\Widget
 {
     /**
      * @var string name of the cookie
@@ -218,4 +218,4 @@ class CookieButton extends \yii\bootstrap\Widget
         $cookie = new \yii\web\Cookie($options);
         \Yii::$app->response->cookies->add($cookie);*/
     }
-} 
+}
